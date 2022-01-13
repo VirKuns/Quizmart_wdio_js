@@ -8,12 +8,11 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+
+  "devDependencies": {
     "-": "^0.0.1",
     "@wdio/cli": "^7.16.13",
-    "save-dev": "^0.0.1-security"
-  },
-  "devDependencies": {
+    "save-dev": "^0.0.1-security",
     "@wdio/local-runner": "^7.16.13",
     "@wdio/mocha-framework": "^7.16.13",
     "@wdio/spec-reporter": "^7.16.13",
