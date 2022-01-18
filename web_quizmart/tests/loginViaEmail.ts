@@ -1,9 +1,11 @@
-import * as Page from "../pageobjects/landing.page"
+import * as landingPage from "../pageobjects/landing.page"
+import * as loginPage from "../pageobjects/login.page"
 
-describe('My Login Via Email', () => {
-    it('should login as a user', async () => {
-        await Page.openLandingPage();
-        await browser.pause(5000)
+describe('Login Via Email', () => {
+    it('Click Sign In With Email button', async () => {
+        await landingPage.openLandingPage();
+        await loginPage.clickSignInWithEmailButton();
+        await browser.pause(2000)
     });
 });
 
