@@ -16,8 +16,8 @@ const EmailField = "//input[@placeholder='Email']";
 const PasswordField = "//input[@name='password']";
 
 // error messages
-const emailRequired = "//h3[text()='Required']/"
-const passwordRequired = "//h3[text()='Required']"[1]
+const emailRequired = "//div[./input[@name='email']]//h3"
+const passwordRequired = "//div[./input[@name='password']]//h3"
 
 // func to click 
 export async function clickSignInWithEmailButton(): Promise<void> {
@@ -37,9 +37,12 @@ export async function getDiscoveryHeaderText(): Promise<string> {
     return await landingPage.getElementTextByLocator(discoverHeader)
 }
 
-export async function getRequiredErrorMessage(): Promise<string> {
-    return await landingPage.getElementTextByLocator(emailRequired),
-    await landingPage.getElementTextByLocator(passwordRequired)
+export async function getRequiredEmailErrorMessage(): Promise<string> {
+    return await landingPage.getElementTextByLocator(emailRequired)
+}
+
+export async function getRequiredPasswordErrorMessage(): Promise<string> {
+    return await landingPage.getElementTextByLocator(passwordRequired)
 }
 
 // func for input fields 
