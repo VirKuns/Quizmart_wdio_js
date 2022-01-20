@@ -7,7 +7,10 @@ const expectSignInHeadetText = "Sign in"
 const expectDiscoverHeaderText = "Discover"
 
 // error messages
-const emptyFields = "Required"
+const requiredFields = "Required"
+const ValidEmaiMessage = "Must be valid email"
+const PaswordLengthMessage = "Password must be at least of 6 characters in length"
+const InvalidPassOrEmailAddress = "The email address or password is incorrect"
 
 // Credentials
 const email = "laume12@mailsac.com"
@@ -27,6 +30,17 @@ describe('Login Via Email', () => {
         await browser.pause(1000);
     });
 
+    it('Sign in with empty input', async () => {
+        await landingPage.openLandingPage();
+        await loginPage.clickSignInWithEmailButton();
+        await browser.pause(2000);
+        expect(await loginPage.getSignInHeaderText()).equals(expectSignInHeadetText);
+        await loginPage.enterCredentials("", "");
+        await loginPage.clickSignInButton();
+        await browser.pause(2000);
+        expect(await loginPage.getRequiredEmailErrorMessage()).equals(requiredFields);
+        expect(await loginPage.getRequiredPasswordErrorMessage()).equals(requiredFields);
+    });
     
 });
 
