@@ -1,9 +1,9 @@
-import * as Page from "./landing.page"
+import * as landingPage from "./landing.page"
 
 
-
+// setting element as a variable (xPath)
 const signInEmailButton = "//button[text()='Sign in with email']"
 
 export async function clickSignInWithEmailButton(): Promise<void> {
-    await Page.clickByLocator(signInEmailButton)
+    await landingPage.clickByLocator(signInEmailButton)
 }
