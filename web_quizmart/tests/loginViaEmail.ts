@@ -15,6 +15,8 @@ const InvalidPassOrEmailAddress = "The email address or password is incorrect"
 // Credentials
 const email = "laume12@mailsac.com"
 const password = "123456"
+const shortPassword = "12345"
+const invalidFormatEmail = "tralialia.lt"
 
 // Tests
 describe('Login Via Email', () => {
@@ -40,8 +42,32 @@ describe('Login Via Email', () => {
         await browser.pause(2000);
         expect(await loginPage.getRequiredEmailErrorMessage()).equals(requiredFields);
         expect(await loginPage.getRequiredPasswordErrorMessage()).equals(requiredFields);
+        await browser.pause(1000);
     });
     
+    it('Sign in with invalid email format', async () => {
+        await landingPage.openLandingPage();
+        await loginPage.clickSignInWithEmailButton();
+        await browser.pause(2000);
+        expect(await loginPage.getSignInHeaderText()).equals(expectSignInHeadetText);
+        await loginPage.enterCredentials(invalidFormatEmail, password);
+        await loginPage.clickSignInButton();
+        await browser.pause(2000);
+        expect(await loginPage.getRequiredEmailErrorMessage()).equals(ValidEmaiMessage);
+        await browser.pause(1000);
+    });
+
+    it('Sign in password lenght too short', async () => {
+        await landingPage.openLandingPage();
+        await loginPage.clickSignInWithEmailButton();
+        await browser.pause(2000);
+        expect(await loginPage.getSignInHeaderText()).equals(expectSignInHeadetText);
+        await loginPage.enterCredentials(email, shortPassword);
+        await loginPage.clickSignInButton();
+        await browser.pause(2000);
+        expect(await loginPage.getRequiredPasswordErrorMessage()).equals(PaswordLengthMessage);
+        await browser.pause(1000);
+    });
 });
 
 
