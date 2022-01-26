@@ -4,7 +4,7 @@ import * as loginPage from "../pageobjects/login.page"
 import {expect} from "chai"
 
 const landPageHeaderText = "Play and create Quiz content"
-const expectSignInHeadetText = "Sign in"
+const signInHeaderText = "Sign in"
 
 // Tests
 describe('Open Landing Page', () => {
@@ -15,6 +15,6 @@ describe('Open Landing Page', () => {
         await browser.pause(1000)
         await landingPage.clicksSignInWithEmailButton()
         await browser.pause(1000)
-        expect(await loginPage.getSignInHeaderText()).equals(expectSignInHeadetText)
+        expect(await loginPage.getSignInHeaderText()).equals(signInHeaderText)
     });
 });
