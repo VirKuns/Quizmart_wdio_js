@@ -5,9 +5,12 @@ import * as defaultPage from "./default.page"
 //buttons 
 const signInButton = "//button[text()='Sign in']";
 
+// links
+const createAccountLink = "//a[contains(@href, '/sign-up')]"
+const resetPasswordLink = "//a[contains(@href, '/reset-password')]"
+
 //headers
 const signInHeader = "//main //h1";
-const discoverHeader = "//h1";
 
 //input fields
 const EmailField = "//input[@placeholder='Email']"; 
@@ -23,13 +26,17 @@ export async function clickSignInButton(): Promise<void> {
     await defaultPage.clickByLocator(signInButton)
 };
 
+export async function clickResetPassLink(): Promise<void> {
+	await defaultPage.clickByLocator(resetPasswordLink) 
+}
+
+export async function clickCreateAccountLink(): Promise<void> {
+	await defaultPage.clickByLocator(createAccountLink) 
+}
+
 // Assertion func
 export async function getSignInHeaderText(): Promise<string> {
     return await defaultPage.getElementTextByLocator(signInHeader)
-}
-
-export async function getDiscoveryHeaderText(): Promise<string> {
-    return await defaultPage.getElementTextByLocator(discoverHeader)
 }
 
 export async function getEmailErrorMessage(): Promise<string> {
