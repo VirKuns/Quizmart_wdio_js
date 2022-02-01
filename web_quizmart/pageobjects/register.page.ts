@@ -1,7 +1,7 @@
-import * as defaultPage from "./default.page"
+import * as defaultPage from './default.page'
 
 // header
-const registerHeader = "//h1"
+const registerHeader = '//h1'
 
 // Assertions
 export async function getSignUpHeaderText(): Promise<string> {

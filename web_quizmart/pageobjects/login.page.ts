@@ -1,25 +1,25 @@
-import * as defaultPage from "./default.page"
+import * as defaultPage from './default.page'
 
 
 
 //buttons 
-const signInButton = "//button[text()='Sign in']";
+const signInButton = '//button[text()="Sign in"]'
 
 // links
-const createAccountLink = "//a[contains(@href, '/sign-up')]"
-const resetPasswordLink = "//a[contains(@href, '/reset-password')]"
+const createAccountLink = '//a[contains(@href, "/sign-up")]'
+const resetPasswordLink = '//a[contains(@href, "/reset-password")]'
 
 //headers
-const signInHeader = "//main //h1";
+const signInHeader = '//main //h1';
 
 //input fields
-const EmailField = "//input[@placeholder='Email']"; 
-const PasswordField = "//input[@name='password']";
+const EmailField = '//input[@placeholder="Email"]'; 
+const PasswordField = '//input[@name="password"]';
 
 // error messages
-const emailInputValidation = "//div[./input[@name='email']]//h3"
-const passwordInputValidation = "//div[./input[@name='password']]//h3"
-const incorrectEmailOrPassword = "(//form//h3[1])"
+const emailInputValidation = '//div[./input[@name="email"]]//h3'
+const passwordInputValidation = '//div[./input[@name="password"]]//h3'
+const incorrectEmailOrPassword = '(//form//h3[1])'
 
 // Action func
 export async function clickSignInButton(): Promise<void> {

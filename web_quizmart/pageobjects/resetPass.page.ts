@@ -1,7 +1,7 @@
-import * as defaultPage from "./default.page"
+import * as defaultPage from './default.page'
 
 // header
-const resetPasswordHeader = "//h1"
+const resetPasswordHeader = '//h1'
 
 // Assertions
 export async function getResetPassHeaderText(): Promise<string> {
