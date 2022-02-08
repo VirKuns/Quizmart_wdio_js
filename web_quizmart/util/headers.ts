@@ -1,7 +1,7 @@
 export enum Headers {
-    landPageHeaderText = 'Play and create Quiz content',
-    signInHeaderText = 'Sign in',
-    discoverHeaderText = 'Discover',
-    registerHeaderText = 'Register',
-    resetPassHeaderText = 'Reset your password'
+    landPage = 'Play and create Quiz content',
+    signIn = 'Sign in',
+    discover = 'Discover',
+    register = 'Register',
+    resetPassword = 'Reset your password'
 }
