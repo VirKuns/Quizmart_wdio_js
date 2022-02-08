@@ -1,9 +1,11 @@
 import * as defaultPage from './default.page'
 
-// headers
+// Elements
 const discoverHeader = '//h1'
+
 const userProfileButton = '//div[text()="U"]'
 const logoutButton = '//div[@role="dialog"] //a[text()="Logout"]'
+const sortingBtn = '//button[./input[@value="Popular"]]'
 
 // Action
 export async function clickUserProfileButton(): Promise<void> {
@@ -15,6 +17,11 @@ export async function clickLogoutButton(): Promise<void> {
 };
 
 // Assertion
-export async function getDiscoveryHeaderText(): Promise<string> {
+export async function getDiscoverHeaderText(): Promise<string> {
     return await defaultPage.getElementTextByLocator(discoverHeader)
 }
+
+// Wait func
+export async function waitForSortingBtnInView(customTimeout?: number): Promise<void> {
+    await defaultPage.waitUntilElementIsVisibleInViewportByLocator(sortingBtn, customTimeout)
+};
