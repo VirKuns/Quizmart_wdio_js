@@ -1,22 +1,16 @@
 import * as defaultPage from './default.page'
 
 
+// Elements
+const signInHeader = '//main //h1'
 
-//buttons 
 const signInButton = '//button[text()="Sign in"]'
-
-// links
 const createAccountLink = '//a[contains(@href, "/sign-up")]'
 const resetPasswordLink = '//a[contains(@href, "/reset-password")]'
 
-//headers
-const signInHeader = '//main //h1';
+const emailField = '//input[@placeholder="Email"]'
+const passwordField = '//input[@name="password"]'
 
-//input fields
-const EmailField = '//input[@placeholder="Email"]'; 
-const PasswordField = '//input[@name="password"]';
-
-// error messages
 const emailInputValidation = '//div[./input[@name="email"]]//h3'
 const passwordInputValidation = '//div[./input[@name="password"]]//h3'
 const incorrectEmailOrPassword = '(//form//h3[1])'
@@ -32,6 +26,10 @@ export async function clickResetPassLink(): Promise<void> {
 
 export async function clickCreateAccountLink(): Promise<void> {
 	await defaultPage.clickByLocator(createAccountLink) 
+}
+
+export async function clickHeaderToLooseFocus(): Promise<void> {
+	await defaultPage.clickByLocator(signInHeader) 
 }
 
 // Assertion func
@@ -52,8 +50,27 @@ export async function getIncorectEmailOrPassMessage(): Promise<string> {
 }
 
 // Input func 
-export async function enterCredentials(email: string, password: string): Promise<void> {
-    await defaultPage.enterValueByLocator(EmailField, email)
-    await defaultPage.enterValueByLocator(PasswordField, password)
+export async function enterCredentialsClickSingIn(email: string, password: string): Promise<void> {
+    await defaultPage.enterValueByLocator(emailField, email)
+    await defaultPage.enterValueByLocator(passwordField, password)
+    await clickSignInButton()
 }
 
+export async function enterPassLooseFocus(password: string): Promise<void> {
+    await defaultPage.enterValueByLocator(passwordField, password)
+    await clickHeaderToLooseFocus()  
+}
+
+export async function enterEmailLooseFocus(email: string): Promise<void> {
+    await defaultPage.enterValueByLocator(emailField, email)
+    await clickHeaderToLooseFocus()  
+}
+
+// Wait func
+export async function waitForErrorMessageInView(customTimeout?: number): Promise<void> {
+    await defaultPage.waitUntilElementIsVisibleInViewportByLocator(incorrectEmailOrPassword, customTimeout)
+};
+
+export async function waitForResetPassLinkInView(customTimeout?: number): Promise<void> {
+    await defaultPage.waitUntilElementIsVisibleInViewportByLocator(resetPasswordLink, customTimeout)
+};
