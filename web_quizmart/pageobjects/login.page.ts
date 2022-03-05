@@ -56,14 +56,14 @@ export async function enterCredentialsClickSingIn(email: string, password: strin
     await clickSignInButton()
 }
 
-export async function enterPassLooseFocus(password: string): Promise<void> {
+export async function enterPassClickSignIn(password: string): Promise<void> {
     await defaultPage.enterValueByLocator(passwordField, password)
-    await clickHeaderToLooseFocus()  
+    await clickSignInButton()  
 }
 
-export async function enterEmailLooseFocus(email: string): Promise<void> {
+export async function enterEmailClickSignIn(email: string): Promise<void> {
     await defaultPage.enterValueByLocator(emailField, email)
-    await clickHeaderToLooseFocus()  
+    await clickSignInButton()  
 }
 
 // Wait func
