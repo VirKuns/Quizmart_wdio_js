@@ -5,5 +5,6 @@ export enum InputValidationMessages {
     paswordLengthTooLong = 'Password must be at most of 100 characters in length',
     incorrectPassOrEmail = 'The email address or password is incorrect',
     emailTooLong = 'New email must be at most 254 characters',
-    passwordsDoNotMatch = 'Passwords must match'
+    passwordsDoNotMatch = 'Passwords must match',
+    emailAlreadyExists = 'User with this email already exists.'
 }
