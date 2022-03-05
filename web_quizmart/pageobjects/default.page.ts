@@ -3,6 +3,10 @@ export async function getElementByLocator(locator: string) {
     return await (browser).$(locator)
 }
 
+export async function getElementsByLocator(locator: string) {
+    return await (browser).$$(locator)
+}
+
 export async function getElementTextByLocator(locator: string): Promise<string> {
     return await (await getElementByLocator(locator)).getText()
 }
@@ -16,7 +20,15 @@ export async function enterValueByLocator(locator: string, value: string): Promi
     await (await getElementByLocator(locator)).setValue(value)
 }
 
+export async function scrollToElementByLocator(locator: string): Promise<void> {
+    await (await getElementByLocator(locator)).scrollIntoView()
+}
+
 // Assertions
+export async function elementPresentByLocator(locator: string): Promise<boolean> {
+    return (await getElementsByLocator(locator)).length > 0
+}
+
 export async function isElementClickableBy(locator: string): Promise<boolean> {
     return await (await getElementByLocator(locator)).isClickable()
 }
