@@ -3,6 +3,11 @@ export const user = {
     password: '123456',
 }
 
+export const unregisteredUer = {
+    email: 'laume10@mailsac.com',
+    password: 'abcdefg',
+}
+
 // Incorect/invalid credentials
 export const invalidFormatEmail = ['laume12@mail', ' laume12@mail', 'laume12@mail..com', 'lau@me12@mail..com', 'abc.lt','.email@example.com', 'a”b(c)d,e:f;gi[j\k]l@domain.com']
 export const incorrectEmail = 'aume123@mailsac.com'
