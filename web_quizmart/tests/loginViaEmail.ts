@@ -38,14 +38,14 @@ describe('Sign In Via Email', () => {
     });
 
     it('Sign in with email too long', async () => {
-        await loginPage.enterEmailLooseFocus(credentials.longEmail);
+        await loginPage.enterEmailClickSignIn(credentials.longEmail);
         expect(await loginPage.getEmailErrorMessage()).equals(InputValidationMessages.emailTooLong);
     });
    
     it('Sign in with password too short and too long', async () => {
-        await loginPage.enterPassLooseFocus(credentials.shortPass);
+        await loginPage.enterPassClickSignIn(credentials.shortPass);
         expect(await loginPage.getPasswordErrorMessage()).equals(InputValidationMessages.paswordLengthTooShort);
-        await loginPage.enterPassLooseFocus(credentials.longPass);
+        await loginPage.enterPassClickSignIn(credentials.longPass);
         expect(await loginPage.getPasswordErrorMessage()).equals(InputValidationMessages.paswordLengthTooLong);
     });
 
